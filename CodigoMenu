@@ -1,0 +1,165 @@
+var xMinBotaoJogar = 150;
+var larguraBotaoJogar = 200;
+var xMaxBotaoJogar = xMinBotaoJogar + larguraBotaoJogar;
+var yMinBotaoJogar = 150;
+var alturaBotaoJogar = 60;
+var yMaxBotaoJogar = yMinBotaoJogar + alturaBotaoJogar;
+
+var xMinBotaoInstrucoes = 150;
+var larguraBotaoInstrucoes = 200;
+var xMaxBotaoInstrucoes = xMinBotaoInstrucoes + larguraBotaoInstrucoes;
+var yMinBotaoInstrucoes = 250;
+var alturaBotaoInstrucoes = 60;
+var yMaxBotaoInstrucoes = yMinBotaoInstrucoes + alturaBotaoInstrucoes;
+
+var xMinBotaoCreditos = 150;
+var larguraBotaoCreditos = 200;
+var xMaxBotaoCreditos = xMinBotaoCreditos + larguraBotaoCreditos;
+var yMinBotaoCreditos = 350;
+var alturaBotaoCreditos = 60;
+var yMaxBotaoCreditos = yMinBotaoCreditos + alturaBotaoCreditos;
+
+
+
+var imagemProgramador;
+
+var imagemFundo1;
+
+var tela = 0;
+
+var trainOne;
+
+function telaMenu(){
+  
+  background(imagemFundo1);
+  textSize(60);
+  textFont("trainOne")
+  fill('#FFFFFF');
+  text('Vaccine capture', 50, 80);
+  
+  noFill();
+  if(mouseX > xMinBotaoJogar && mouseX < xMaxBotaoJogar && mouseY >         yMinBotaoJogar && mouseY < yMaxBotaoJogar){
+    fill('red');
+    if(mouseIsPressed){
+      tela = 1
+    }
+  }
+
+  
+  rect(xMinBotaoJogar, yMinBotaoJogar, larguraBotaoJogar, alturaBotaoJogar, 20);
+  textSize(26);
+  textFont('cursive');
+  fill('#FFFFFF');
+  text('Jogar', 215, 190);
+  
+  
+  noFill();
+  if(mouseX > xMinBotaoInstrucoes && mouseX < xMaxBotaoInstrucoes && mouseY >         yMinBotaoInstrucoes && mouseY < yMaxBotaoInstrucoes){
+    fill('red');
+    if(mouseIsPressed){
+      tela = 2
+    }
+  }
+
+  rect(xMinBotaoInstrucoes, yMinBotaoInstrucoes, larguraBotaoInstrucoes, alturaBotaoInstrucoes, 20);
+  textSize(26);
+  textFont('cursive')
+  fill('#FFFFFF');
+  text('Instruções', 190, 286);
+  
+  noFill();
+  if(mouseX > xMinBotaoCreditos && mouseX < xMaxBotaoCreditos && mouseY >         yMinBotaoCreditos && mouseY < yMaxBotaoCreditos){
+    fill('red');
+    if(mouseIsPressed){
+      tela = 3
+    }
+  }
+
+  rect(xMinBotaoCreditos, yMinBotaoCreditos, larguraBotaoCreditos, alturaBotaoCreditos, 20);
+  textSize(26);
+  textFont('cursive')
+  fill('#FFFFFF');
+  text('Créditos', 200, 386);
+  
+  
+  
+    
+  
+}
+
+function telaJogar(){
+  
+  background(imagemFundo1);
+  textSize(36);
+  fill('#FFFFFF');
+  text('Jogando', 160, 70)
+  
+  
+}
+
+function telaInstrucoes(){
+  
+  background(imagemFundo1);
+  textSize(36);
+  textFont('cursive');
+  fill('#FFFFFF');
+  text('Instruções:', 160, 70);
+  textSize(18);
+  text('Basicamente o objetivo do jogo é conseguir chegar ao lado oposto da tela, e pegar a tão esperada vacina contra o vírus da COVID-19. Mas não vai ser tão simples assim, porque enquanto você vai caminhando todo feliz para ser vacinado, ainda terão alguns vírus tentando te contaminar. Então vc vai ter que atravessar sem ser contaminado. Para caminhar você vai usar o teclado com as teclas das setas direita e esquerda, e você vai poder usar a tecla de espaço para pular.', 35, 100, 425)
+  textSize(25);
+  text('Boa sorte na sua caminhada para ser vacinado!', 20, 390, 430);
+  
+  
+}
+
+function telaCreditos(){
+  
+   background(imagemFundo1);
+  textSize(40);
+  fill('#FFFFFF');
+  text('Créditos:', 170, 90 );
+  textSize(20);
+  text('RAFAEL AUGUSTO', 220, 170);
+  textSize(18);
+  text('Funcão: programador', 220, 200);
+  textSize(16);
+  fill('#FFFFFF');
+  text('Aluno Bacharelando em Ciências e Tecnologia pela Universidade Federal do Rio Grande do Norte (UFRN).', 180, 230, 300)
+ 
+   image(imagemProgramador, 40, 160, 120, 130);
+  
+}
+
+function preload(){
+  
+  imagemProgramador = loadImage("Foto_programador.jpg");
+  imagemFundo1 = loadImage("corona.png");
+  trainOne = loadFont("TrainOne-Regular.ttf");
+}
+
+
+function setup() {
+  createCanvas(500, 500);
+}
+
+function draw() {
+  
+  if(tela == 0){
+    telaMenu()
+  }
+  
+  if(tela == 1){
+    telaJogar()
+  }
+  
+  if(tela == 2){
+    telaInstrucoes()
+  }
+ 
+  if(tela == 3){
+     telaCreditos();
+  }
+ 
+  
+}
+
